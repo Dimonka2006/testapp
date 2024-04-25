@@ -20,4 +20,3 @@ git config --global user.email "Dimonka2006@mail.ru"
 
 https://github.com/Dimonka2006/testapp.git   in HTML
 git@github.com:Dimonka2006/testapp.git      in ssh
-*************************
