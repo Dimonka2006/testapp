@@ -1,6 +1,8 @@
-#stop.sh
-stop=$(sudo ps aux | grep "flask run" | grep -v grep | cut -d " " -f7)
-for i in $stop;do
-kill -9 $i
-echo "mesti svershilas - klient ubit"
+# создать папку arhive скриптом (что бы проверял и делал если нет созданной)
+arhive=$(find . -type d -name "arhive")
+for n in $arhive; do
+if [!-d ./$n]
+then
+mkdir ./$n
+echo "директория_создана"
 done
