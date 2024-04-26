@@ -4,5 +4,5 @@ for n in $arhive; do
 if [!-d ./$n]
 then
 mkdir ./$n
-echo "директория_создана"
+echo "direction_compled"
 done
