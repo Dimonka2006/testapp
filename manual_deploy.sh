@@ -13,5 +13,6 @@ fi
 source_dir="/home/programfid/app/"
 backup_dir="/home/programfid/app/backup/"
 timestamp =$(date +%Y% m%d%H%M%S)
+file=
 backup_file="backup_$timestamp.tar.gz"
 tar -czvf"$backup_dir/$backup_file""$source_dir"
