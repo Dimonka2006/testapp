@@ -13,7 +13,7 @@ fi
 source_dir="/home/programfid/app/"
 backup_dir="/home/programfid/app/backup/"
 timestamp=$(date +%Y% m%d%H%M%S)
-file=$(find . -name "*.su"&&"*.py")
+file=$(find . -maxdepth 1 -type f -name "*.sh" -o -name "*.py")
 backup_file="$timestamp_backup_$file.tar.gz"
 tar -czvf"$backup_dir/$backup_file""$source_dir"
 
