@@ -12,6 +12,8 @@ fi
 #let's create a backup copy
 source_dir="/home/programfid/app/"
 backup_dir="/home/programfid/app/backup/"
-timestamp =$(date +%Y% m%d%H%M%S)
-backup_file="backup_$timestamp.tar.gz"
+timestamp=$(date +%Y% m%d%H%M%S)
+file=$(find . -maxdepth 1 -type f -name "*.sh" -o -name "*.py")
+backup_file="$timestamp_backup_$file.tar.gz"
 tar -czvf"$backup_dir/$backup_file""$source_dir"
+
