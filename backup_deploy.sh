@@ -1,10 +1,11 @@
 #!/bin/bash
+set -e
 echo "Hello, $USER!"
 echo "Today is $(date)"
 echo "begin starting babah system"
 
 #to create backup directory
-cd /home/programfid/app/
+
 if [ ! -d "backup" ]; then
   mkdir -pv backup
 fi
