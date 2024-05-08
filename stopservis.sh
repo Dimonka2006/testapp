@@ -7,3 +7,4 @@ echo $i
 kill -9 $i
 echo "Stopping proces"
 done
+stopservis.sh (END)

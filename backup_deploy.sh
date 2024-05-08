@@ -17,3 +17,5 @@ file=$(find . -maxdepth 1 -type f -name "*.sh" -o -name "*.py")
 backup_file="$timestamp_backup_$file.tar.gz"
 tar -czvf"$backup_dir/$backup_file""$source_dir"
 
+backup_deploy.sh (END)
+
