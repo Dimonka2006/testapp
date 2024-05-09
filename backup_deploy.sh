@@ -11,14 +11,15 @@ if [ ! -d "backup" ]; then
 fi
 
 #let's create a backup copy
+
 source_dir="/home/programfid/app/"
 backup_dir="/home/programfid/app/backup/"
 timestamp=$(date +"%Y-%m-%d-%h-%m-%s")
-file=$timestamp$(find . -maxdepth 1 -type f -name "*.sh" -o -name "*.py")
-backup_file="backup_$file.tar.gz"
-#backup_file="${timestamp}${file}" 
-echo $backup_file
-tar -czvf "$backup_dir/$backup_file $source_dir"
+dfile=$(find . -maxdepth 1 -type f -name "*.sh" -o -name "*.py")
+backup_file="$timestamp_$dfile.tar.gz"
+echo $dfile
+tar -czvf "$backup_dir/$backup_file $dfile"
+#find $backup_dir"*.tar.gz" -mtime +10 -exec rm {} \;
 
 backup_deploy.sh (END)
 
