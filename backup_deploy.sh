@@ -14,12 +14,13 @@ fi
 
 source_dir="/home/programfid/app/"
 backup_dir="/home/programfid/app/backup/"
-timestamp=$(date +"%Y-%m-%d-%h-%m-%s")
+fdate=$(date +"%Y-%m-%d-%h-%m")
 dfile=$(find . -maxdepth 1 -type f -name "*.sh" -o -name "*.py")
-backup_file="$timestamp_$dfile.tar.gz"
+bfile="$fdate_$dfile.tar.gz"
 echo $dfile
-tar -czvf "$backup_dir/$backup_file" "$dfile"
+#tar -czvf "$backup_dir/$bfile" "$dfile"
 #find $backup_dir -name "*.tar.gz" -mtime +10 -exec rm {} \;
+tar -czvf "/home/programfid/app/backup/"/"date +"%Y-%m-%d-%h-%m"_find -type f -name "*.sh" -o -name "*.py".tar.gz" "find -type f -name "*.sh" -o -name "*.py"
 
 backup_deploy.sh (END)
 
