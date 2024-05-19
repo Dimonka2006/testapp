@@ -15,8 +15,8 @@ fi
 source_dir="/home/programfid/app/"
 backup_dir="/home/programfid/app/backup/"
 timestamp=$(date +"%Y-%m-%d-%h-%m-%s")
-dfile=$(find . -maxdepth 1 -type f -name "*.sh" -o -name "*.py" -printf " %f ")
-#| sed 's|^./||') 
+dfile=$(find . -maxdepth 1 -name "*.sh" -printf " %f " -o -name "*.py" -printf " %f ")
+#dfile=$(find . -maxdepth 1 -name "*.sh" -o -name "*.py" | sed 's|^./||') 
 # 2 way
 backup_file="$timestamp.tar.gz"
 echo $dfile
