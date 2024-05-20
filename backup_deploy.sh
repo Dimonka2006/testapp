@@ -20,5 +20,5 @@ dfile=$(find . -maxdepth 1 -name "*.sh" -printf " %f " -o -name "*.py" -printf "
 # 2 way
 backup_file="$timestamp.tar.gz"
 echo $dfile
-tar -czvf "$backup_dir/$backup_file" "$dfile"
+tar -czvf "$backup_dir"/"$backup_file" "$dfile"
 #find $backup_dir -name "*.tar.gz" -mtime +10 -exec rm {} \;
