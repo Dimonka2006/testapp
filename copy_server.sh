@@ -8,7 +8,8 @@ ssh dus@srv503956.hstgr.cloud 'bash -s' < cd /home/programfid/app ./backup_deplo
 scp -P 22 test_prog.sh dus@srv503956.hstgr.cloud:/home/programfid/app
 #поиск и переименование всех файлов dus на programfid
 ssh dus@srv503956.hstgr.cloud 'bash -s' < find ./home/programfid/app -user dus | chown programfid {}
-
+#Остановка сервиса
+sudo systemctl stop app.service
 #Обновить конфигурацию systemd:
 sudo systemctl daemon-reload
 #Добавить сервис в автозагрузку и запустить его:
