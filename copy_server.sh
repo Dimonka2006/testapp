@@ -1,4 +1,4 @@
-##!/bin/bash
+#!/bin/bash
 set -e
 #выложить на сервер backup скрипт
 scp -P 22 backup_deploy.sh dus@srv503956.hstgr.cloud:/home/programfid/app
