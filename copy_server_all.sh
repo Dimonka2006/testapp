@@ -5,8 +5,10 @@ read NAME
 echo "my name is $NAME"
 #выложить на сервер backup скрипт
 scp -P 22 backup_deploy.sh $NAME@srv503956.hstgr.cloud:/home/programfid/app
+#добавление прав на исполнение и запуск выложеного скрипта на сервере
+ssh $NAME@srv503956.hstgr.cloud 'cd /home/programfid/app && sudo chmod 774 backup_deploy.sh && sudo chmod +x backup_deploy.sh && ./backup_deploy.sh'
 #запуск выложеного скрипта на сервере 
-ssh $NAME@srv503956.hstgr.cloud 'cd /home/programfid/app && ./backup_deploy.sh'
+#ssh $NAME@srv503956.hstgr.cloud 'cd /home/programfid/app && ./backup_deploy.sh'
 #выложить программы и базы на сервер 
 #scp -r directory NAME@remote_host[:dest_dir] если копировать директорию
 # rsync -nva dir NAME@host:dest_dir или через службу rsunc для передачи всей иерархии каталогов, 
