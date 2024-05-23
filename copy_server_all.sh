@@ -17,13 +17,14 @@ scp -P 22 test_prog.sh $NAME@srv503956.hstgr.cloud:/home/programfid/app
 #переименование всех файлов на programfid
 ssh $NAME@srv503956.hstgr.cloud 'cd /home/programfid/app && sudo chown -R programfid:programfid ./'
 #Остановка сервиса
-sudo systemctl stop app.service
+#sudo systemctl stop app.service
 #Обновить конфигурацию systemd:
-sudo systemctl daemon-reload
+#sudo systemctl daemon-reload
 #Добавить сервис в автозагрузку и запустить его:
-sudo systemctl enable app.service
-sudo systemctl start app.service
+#sudo systemctl enable app.service
+#sudo systemctl start app.service
 #Проверьте что сервис запущен:
-sudo systemctl status app.service
-
+#sudo systemctl status app.service
+ssh $NAME@srv503956.hstgr.cloud 'sudo systemctl stop app.service && sudo systemctl daemon-reload'
+ssh $NAME@srv503956.hstgr.cloud 'sudo systemctl enable app.service && sudo systemctl start app.service'
 exit 0
