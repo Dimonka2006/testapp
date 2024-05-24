@@ -1,8 +1,16 @@
-##!/bin/bash
+#!/bin/bash
 set -e
 echo "Hi, what's your name?"
 read NAME
-echo "my name is $NAME"
+
+if NAME=""
+
+[ -n $NAME ]; then
+
+    echo "$USER is empty"
+else
+    echo "$NAME is not empty"
+fi
 
 #выложить на сервер backup скрипт
 scp -P 22 backup_deploy.sh $NAME@srv503956.hstgr.cloud:/home/programfid/app
