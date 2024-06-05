@@ -6,3 +6,7 @@ class Shape(ABC):
  @abstractmethod
  def perimeter(self):
     pass
+ 
+
+ print("_______________________________________________________")
+ 
