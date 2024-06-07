@@ -13,11 +13,22 @@ w = [
     "chicken", "kebab", "olive oil", "rice oil", "rice", "ginger", "honey", "sausage"
 ]
 
-def convert(lst):
-res_dict = {}
-for i in range(0, len(lst), 2):
-	res_dict[lst[i]] = lst[i + 1]
-return res_dict
+def convert(w):
+    # Создаем пустой словарь для хранения результата
+    res_dict = {}
+    for i in w:
+         # Разбиваем входную строку на отдельные символы
+        if i in res_dict:
+                 
+            # Увеличиваем счетчик для текущего слова, если он уже есть в словаре
+             res_dict[i] += 1
+ 
+        else:
+            # Если слово встречается впервые, добавляем его в словарь с начальным значением 1
+             res_dict[i] = 1
+    
+    return res_dict
 
-lst = ['a', 1, 'b', 2, 'c', 3]
-print(convert(lst))
+
+
+print(convert(w))

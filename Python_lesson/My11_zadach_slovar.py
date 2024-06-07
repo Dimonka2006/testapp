@@ -13,5 +13,3 @@ for p in d2:
 
 print(d3)
     
-#d3 = (d1 + d2)
-#print(d3)
