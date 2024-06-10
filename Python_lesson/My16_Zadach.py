@@ -68,7 +68,7 @@ def dlin_strok(m):
         result_spisok.append(len(i))
     return result_spisok
 
-print(dlin_strok(rows))
+#print(dlin_strok(rows))
 
 def slovar_hitr(catty):
     result_slovar = {}
@@ -83,8 +83,28 @@ def slovar_hitr(catty):
     return result_slovar          
         
       
-print(slovar_hitr(rows))    
-    # 2 созвращает словарь вида {"A":[...], "B": [...]} 
-# где первая буква фразы является ключом, а значение список фраз
-# начинающиеся с той же буквы
+#print(slovar_hitr(rows))    
+
+
+# 3 находит фразу максимальной длины и дополняет остальные символом _ до одинаковой длины
+# так чтобы все строки имели на выходе одинаковый размер
+
+def hitr_spisok(sinzi):
+
+    max_rows = max(len(s) for s in sinzi)
+    print(max_rows)  # Выведет самую длинную фразу
+    
+    result_spisok = []
+    for string in sinzi:
+            
+        padding = '_'  *  (max_rows - len(string))
+      
+        result_spisok.append(padding + string)
+   
+    return result_spisok
+
+result_spisok = hitr_spisok(rows)
+
+print(hitr_spisok(rows))  # Выведет самую длинную фразу 
+
 
