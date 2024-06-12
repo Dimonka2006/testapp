@@ -15,15 +15,24 @@ l = [
 # 1 выведет тип каждого элемента 
 
 for ork in l:
-    print(type(ork).__name__)
+    print(type(ork))
 
 # 2 которая выведет
 # Guy support 350 answer nothing modern involve its 221
 
 result = ""
 for slovo in l:
-    result += str(slovo) + " "  
-    # Преобразуем каждый элемент в строку и добавляем пробел между ними
+    
+    if type(slovo) is tuple:
+        result += " ".join(slovo)
+
+    elif type(slovo) is set:
+        result += " ".join(slovo)
+    elif type(slovo) is list:
+        result += " ".join(slovo)    
+    else:    
+        result += str(slovo) + " "
+        # Преобразуем каждый элемент в строку и добавляем пробел между ними
 print(result)
 
 
