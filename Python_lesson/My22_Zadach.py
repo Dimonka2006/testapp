@@ -8,10 +8,10 @@
 import json
 
 
-with open('c:\\list1.json', 'r') as f:
+with open('/root/testapp/Python_lesson/list1.json', 'r') as f:
     data = json.load(f)
 
-with open('c:\\list2.json', 'r') as f:
+with open('/root/testapp/Python_lesson/list2.json', 'r') as f:
     data1 = json.load(f)
 
 def compare(l1, l2):
