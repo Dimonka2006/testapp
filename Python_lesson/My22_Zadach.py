@@ -34,4 +34,4 @@ with open('line3.json', 'w') as f_out:
     json.dump(data, f_out, ensure_ascii=False)
             
 
-compare(data, data1)
+print(compare(data, data1))
