@@ -3,21 +3,19 @@
 #2. создай массив из семи чисел, преврати его в json и сохрани в файл
 
 import json
-
+# Открываем файл на запись
 with open(r'1_1_home_print.txt', 'w', encoding='utf16') as file:
-    for i in  range(1, 8):
+    for i in  range(1, 8): # Создаем последовательность чисел с 1 по 7
         file.write(f'{i} строка\n')
-        
-print(file)
-        
+     
 
 
+# Создаем массив
+numbers = [1, 2, 3, 4, 5, 6, 7]
 
+# Преобразуем массив в JSON строку
+json_data = json.dumps(numbers)
 
-#jonson_array = ["1", "2", "3", "4", "5", "6", "7" ]
-
-
-
-#file_descriptor=open(r'1_2_home_print.json', 'w', encoding='utf16')
-#file_descriptor.write(json_array)
-#file_descriptor.close()
+# Сохраняем JSON строку в файл
+with open('numbers.json', 'w') as f:
+    f.write(json_data)
