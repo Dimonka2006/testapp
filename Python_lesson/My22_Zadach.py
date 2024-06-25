@@ -28,7 +28,7 @@ def compare(l1, l2):
                     if num >= 2:
                         
                         return line3
-    print(line3)
+    
                                  
 with open('line3.json', 'w') as f_out:
     json.dump(data, f_out, ensure_ascii=False)
