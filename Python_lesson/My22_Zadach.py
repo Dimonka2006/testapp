@@ -10,7 +10,7 @@ import json
 
 with open('C:\list1.json', 'r') as f:
     data = json.load(f)
-
+#print(data)
 with open('C:\list2.json', 'r') as f:
     data1 = json.load(f)
 
@@ -33,4 +33,5 @@ def compare(l1, l2):
 
             
 
-compare(data, data1)
+print(compare(data, data1))
+
