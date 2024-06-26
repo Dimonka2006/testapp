@@ -19,5 +19,5 @@ with open('C:\\task9_dict.json', 'r') as f:
 def task1(d):
      for k, v in d.items():
           print(k, v)    
-          if k = 'president'     
+         # if k  'president'     
 task(d)

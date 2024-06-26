@@ -8,7 +8,7 @@
 import json
 
 
-with open('C:\list1.json', 'r') as f:
+with open('/root/testapp/Python_lesson/list1.json', 'r') as f:
     data = json.load(f)
 #print(data)
 with open('C:\list2.json', 'r') as f:
@@ -28,10 +28,10 @@ def compare(l1, l2):
                     if num >= 2:
                         
                         return line3
-    print(line3)
+    
                                  
-
+with open('line3.json', 'w') as f_out:
+    json.dump(data, f_out, ensure_ascii=False)
             
 
 print(compare(data, data1))
-
