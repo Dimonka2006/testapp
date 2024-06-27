@@ -9,10 +9,10 @@ import json
 from collections import Counter
 
 with open('/root/testapp/Python_lesson/list1.json', 'r') as f:
-    data = json.load(f)
+    data1 = json.load(f)
 #print(data)
 with open('/root/testapp/Python_lesson/list2.json', 'r') as f2:
-    data1 = json.load(f2)
+    data2 = json.load(f2)
 
 def compare(list1, list2):
     # Преобразуем списки строк в списки слов
@@ -30,13 +30,13 @@ def compare(list1, list2):
     
     return filtered_sentences1, filtered_sentences2
 
-filtered_list1, filtered_list2 = compare(list1, list2)
+filtered_list1, filtered_list2 = compare(data1, data2)
 print(f"Filtered list 1: {filtered_list1}")
 print(f"Filtered list 2: {filtered_list2}")
 
                                  
 with open('line3.json', 'w') as f_out:
-    json.dump(data, f_out, ensure_ascii=False)
+    json.dump(compare(data1, data2), f_out, ensure_ascii=False)
             
 
 
