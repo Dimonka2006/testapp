@@ -16,19 +16,19 @@ with open('/root/testapp/Python_lesson/list2.json', 'r') as f2:
 
 def compare(list1, list2):
     # Преобразуем списки строк в списки слов
-    slova1 = [word for sentence in list1 for word in sentence.split()]
-    slova2 = [word for sentence in list2 for word in sentence.split()]
+    slova1 = [word for slova in list1 for word in slova.split()]
+    slova2 = [word for slova in list2 for word in slova.split()]
     # Фильтрация строк, содержащих два и более одинаковых слова
-    filtered_sentences1 = []
-    filtered_sentences2 = []
-    for sentence in list1:
-        if any(Counter(sentence.split())[word] > 1 for word in set(sentence.split())):
-            filtered_sentences1.append(sentence)
-    for sentence in list2:
-        if any(Counter(sentence.split())[word] > 1 for word in set(sentence.split())):
-            filtered_sentences2.append(sentence)
+    filtered_slovas1 = []
+    filtered_slovas2 = []
+    for slova in list1:
+        if any(Counter(slova.split())[word] > 1 for word in set(slova.split())):
+            filtered_slovas1.append(slova)
+    for slova in list2:
+        if any(Counter(slova.split())[word] > 1 for word in set(slova.split())):
+            filtered_slovas2.append(slova)
     
-    return filtered_sentences1, filtered_sentences2
+    return filtered_slovas1, filtered_slovas2
 
 filtered_list1, filtered_list2 = compare(data1, data2)
 print(f"Filtered list 1: {filtered_list1}")

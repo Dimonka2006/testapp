@@ -13,7 +13,7 @@
 
 import json
 
-with open('C:\\task9_dict.json', 'r') as f:
+with open('/root/testapp/Python_lesson/task9_dict.json', 'r') as f:
     data = json.load(f)
 
 def task1(d):
