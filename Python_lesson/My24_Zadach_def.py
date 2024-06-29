@@ -30,9 +30,10 @@ json_data = data
 keys_to_extract = ('president', 'collection', 'game', 'voice', 'spaceship')
 
 print('_____________________________________\n')
+from pathlib import Path
 
-def process_dictionary(json_file_path, keys_to_extract):
-    """Проходит по словарю в JSON файле и возвращает новый словарь с найденными ключами и значениями."""
+def task2(json_file_path, keys_to_extract):
+    """Проходит по словарю в JSON файле и возвращает новый словарь c найденными ключами и значениями."""
     # Читаем содержимое JSON файла
     with open(json_file_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -44,9 +45,9 @@ def process_dictionary(json_file_path, keys_to_extract):
         
     return new_dict
 
-new_dictionary = task1(json_data, keys_to_extract)
-
 json_file_path = 'C:\\task9_dict.json'  # Путь к JSON файлу
 keys_to_extract = ('president', 'collection', 'game', 'voice', 'spaceship') # Ключики
+
+new_dictionary = task2('C:\\task9_dict.json', keys_to_extract)
 
 print(new_dictionary)
