@@ -17,9 +17,7 @@ with open('C:\\task9_dict.json', 'r') as f:
     data = json.load(f)
 
 def task1(json_data, keys_to_extract):
-        #for k, v in d.items():
-         #   print(k, v)    
-            # if k  'president'     
+
     for key in keys_to_extract:
         if key in json_data:
             value = json_data[key] # значения списка по ключу
@@ -31,4 +29,24 @@ def task1(json_data, keys_to_extract):
 json_data = data
 keys_to_extract = ('president', 'collection', 'game', 'voice', 'spaceship')
 
-task1(json_data, keys_to_extract)
+print('_____________________________________\n')
+
+def process_dictionary(json_file_path, keys_to_extract):
+    """Проходит по словарю в JSON файле и возвращает новый словарь с найденными ключами и значениями."""
+    # Читаем содержимое JSON файла
+    with open(json_file_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+
+    new_dict = {}
+    for key in keys_to_extract:
+        if key in data: # Создаем новый ключ в новом словаре и присваиваем ему значение из исходного словаря
+            new_dict[f'NewKey_{key}'] = data[key]
+        
+    return new_dict
+
+new_dictionary = task1(json_data, keys_to_extract)
+
+json_file_path = 'C:\\task9_dict.json'  # Путь к JSON файлу
+keys_to_extract = ('president', 'collection', 'game', 'voice', 'spaceship') # Ключики
+
+print(new_dictionary)
