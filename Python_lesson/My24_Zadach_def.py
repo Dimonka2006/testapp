@@ -55,7 +55,6 @@ print(new_dictionary)
 print('_____________________________________\n')
 
 
-
 def task4(json_data, keys_to_extract):
     with open(json_data, 'r') as f:
         data = json.load(f)
