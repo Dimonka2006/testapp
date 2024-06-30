@@ -54,10 +54,11 @@ print(new_dictionary)
 
 print('_____________________________________\n')
 
-with open('C:\\task9_dict.json', 'r') as f:
-    data = json.load(f)
+
 
 def task4(json_data, keys_to_extract):
+    with open(json_data, 'r') as f:
+        data = json.load(f)
 
     new_dict2 = {} # Создаем новый словарь для хранения результатов
     for key in keys_to_extract:
