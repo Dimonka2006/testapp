@@ -9,8 +9,8 @@ LOGGING_CFG = {
         (filename) s:% (lineno) i% (message) s'
         },
     },
-"handlers": {
-    "lesson4_handle": {
+    "handlers": {
+        "lesson4_handle": {
         "level": "INFO",
         "class": "logging.FileHandler",
         'formatter': 'lesson4_format',
