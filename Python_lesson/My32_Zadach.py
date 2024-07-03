@@ -1,5 +1,5 @@
 # Написать программу расчета частоты повторения каждого слова в заданном отрывке текста
-# результатом должен быть словарь где ключи - слова, 
+# результатом должен быть словарь где ключи - слова, длинна слова более 3 символов
 # значения - количество повторения слова в тексте 
 # прогамма должно выводить ТОП 10 наиболее часто повторяемых слов
 # 
@@ -29,25 +29,39 @@ def obrabotka(text):
     keys = [key.strip('.,!?').lower() for key in text.split()] # Разбиваем текст на слова, удаляем знаки препинания и приводим слова к нижнему регистру
 
     result_dict = {}
-
-    for key in keys: # Проходим по каждому элементу списка
-
-        result_dict[key] += 1 # Если элемент уже есть в словаре, увеличиваем его счетчик
-    else:
-        result_dict[key] = 1 # Если элемент новый, добавляем его со счетчиком 1
-
+    for key in keys:
+        
+        if key in result_dict and len(key) > 3: # Проходим по каждому элементу списка
+            result_dict[key] += 1 # Если элемент уже есть в словаре, увеличиваем его счетчик
+        
+        elif len(key) > 3: 
+            result_dict[key] = 1 # Если элемент новый, добавляем его со счетчиком 1
+        
     return result_dict
-
+slovar = obrabotka(text)
+print(slovar)
 def top_keys(result_dict, n=10):
-    # Сортируем словарь по убыванию частоты
-    sorted_keys = sorted(result_dict.items(), key=operator.itemgetter(1), reverse=True)
+    result= {}
+    max = 0
+    while n > 0: 
+        n = n-1
+        max_key = ""
+        for key in result_dict:
+            value = result_dict[key]
+            if max < value:
+                max = value 
+                max_key = 
+    return result            
     
-    # Выводим первые n элементов (ТОП-10 слов)
-    for key, count in sorted_keys[:n]:
-        print(f"{key}: {count}")
+#     # Сортируем словарь по убыванию частоты
+#     sorted_keys = sorted(result_dict.items(), key=operator.itemgetter(1), reverse=True)
+    
+#     # Выводим первые n элементов (ТОП-10 слов)
+#     for key, count in sorted_keys[:n]:
+#         print(f"{key}: {count}")
 
-# Рассчитываем частоту слов
-key_result_dict = result_dict(text)
+# # Рассчитываем частоту слов
+# key_result_dict = result_dict(text)
 
-# Выводим ТОП-10 наиболее часто повторяемых слов
-print_top_keys(result_dict, n=10)
+# # Выводим ТОП-10 наиболее часто повторяемых слов
+# print_top_keys(result_dict, n=10)
