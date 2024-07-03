@@ -22,3 +22,32 @@ There was no one there.  The silence was absolute.  Sarah, her body shaking with
 As she turned to leave, a single, single raven feather fluttered down from the rafters, landing at her feet.  Sarah stared at it, a shiver crawling down her spine.  The feather seemed to wink, wink in the dim light, a silent, unsettling message from the shadows.
 With a newfound urgency, Sarah hurried back downstairs, the creaking floorboards seeming to echo her frantic heartbeat.  The rain continued to fall, fall, fall, but the sound no longer seemed monotonous.  It now held a sinister undercurrent, a relentless whisper of secrets hidden within the old house.
 """
+
+
+def obrabotka(text):
+    
+    keys = [key.strip('.,!?').lower() for key in text.split()] # Разбиваем текст на слова, удаляем знаки препинания и приводим слова к нижнему регистру
+
+    result_dict = {}
+
+    for key in keys: # Проходим по каждому элементу списка
+
+        result_dict[key] += 1 # Если элемент уже есть в словаре, увеличиваем его счетчик
+    else:
+        result_dict[key] = 1 # Если элемент новый, добавляем его со счетчиком 1
+
+    return result_dict
+
+def top_keys(result_dict, n=10):
+    # Сортируем словарь по убыванию частоты
+    sorted_keys = sorted(result_dict.items(), key=operator.itemgetter(1), reverse=True)
+    
+    # Выводим первые n элементов (ТОП-10 слов)
+    for key, count in sorted_keys[:n]:
+        print(f"{key}: {count}")
+
+# Рассчитываем частоту слов
+key_result_dict = result_dict(text)
+
+# Выводим ТОП-10 наиболее часто повторяемых слов
+print_top_keys(result_dict, n=10)
