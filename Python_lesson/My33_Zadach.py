@@ -6,11 +6,22 @@
 #если будет интересно, то можно реализовать также функцию сохранения текущего состояния 
 # библиотеки обратно в csv файл
 
+import csv
+
+with open('books.csv', 'w', newline='', encoding='utf-8') as file:
+    # Создаем объект writer для записи данных в файл
+    writer = csv.DictWriter(file, fieldnames=['title', 'author', 'genre', 'height', 'publisher'])
+    
+    # Записываем заголовки столбцов
+    writer.writeheader()
+    
+    # Записываем данные в файл
+    writer.writerows(file)
 
 #Title,Author,Genre,Height,Publisher
 def new_book(title, author, genre, height, publisher):
     book = {"title":title, "author":author, "genre":genre, "height":height, "publisher":publisher}
-    lib.append(book)
+    file.append(book)
 
 new_book("Убийство в поезде", "Агата Кристи", "Детектив", 300, "Аркаим")
 
@@ -18,7 +29,7 @@ new_book("Убийство в поезде", "Агата Кристи", "Дет�
 
 def find_book(title, author, genre, height, publisher):
     resault_sp = []
-    for book_dict in lib:
+    for book_dict in file:
         #print(book_dict)
         if title == book_dict["title"] or author == book_dict["author"] or genre == book_dict["genre"], or genre == book_dict["height"], or genre == book_dict["publisher"]:
 
