@@ -24,15 +24,7 @@ def find_book(title, author, genre):
 
             resault_sp.append(book_dict)
 
-        #f author == book_dict["author"]:
 
-        #    resault_sp.append(book_dict)
-        
-       # if genre == book_dict["genre"]:
-            
-        #    resault_sp.append(book_dict)
-             
-       
     return resault_sp
 
 books = find_book("Убийство в поезде", "Агата Кристи", "Детектив")

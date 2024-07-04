@@ -34,12 +34,13 @@ def obrabotka(text):
         if key in result_dict and len(key) > 3: # Проходим по каждому элементу списка
             result_dict[key] += 1 # Если элемент уже есть в словаре, увеличиваем его счетчик
         
-        elif len(key) > 3: 
+        elif len(key) > 3:  # добавляем дополнительное условие
             result_dict[key] = 1 # Если элемент новый, добавляем его со счетчиком 1
         
     return result_dict
 slovar = obrabotka(text)
 print(slovar)
+
 def top_keys(result_dict, n=10):
     result= {}
     max = 0
