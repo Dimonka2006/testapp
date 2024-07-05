@@ -51,8 +51,14 @@ def top_keys(result_dict, n=10):
             value = result_dict[key]
             if max < value:
                 max = value 
-                max_key = 
-    return result            
+                if max_key < key:
+                    max_key = key
+
+    return result          
+result_dict = slovar
+proverka = top_keys(result_dict, n=10)  
+# # Выводим ТОП-10 наиболее часто повторяемых слов
+print(proverka)
     
 #     # Сортируем словарь по убыванию частоты
 #     sorted_keys = sorted(result_dict.items(), key=operator.itemgetter(1), reverse=True)

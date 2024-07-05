@@ -8,15 +8,16 @@
 
 import csv
 
-with open('books.csv', 'w', newline='', encoding='utf-8') as file:
+with open('books.csv', 'r', newline='', encoding='utf-8') as file:
     # Создаем объект writer для записи данных в файл
-    writer = csv.DictWriter(file, fieldnames=['title', 'author', 'genre', 'height', 'publisher'])
+    reader = csv.DictReader(file, fieldnames=['title', 'author', 'genre', 'height', 'publisher'])
+    for row in reader:
+    # читаем заголовки столбцов
+        reader.fieldnames
+        print(row['title'], row['author'], row['genre'], row['height'], row['publisher'])
+                  
     
-    # Записываем заголовки столбцов
-    writer.writeheader()
-    
-    # Записываем данные в файл
-    writer.writerows(file)
+
 
 #Title,Author,Genre,Height,Publisher
 def new_book(title, author, genre, height, publisher):
@@ -40,3 +41,13 @@ def find_book(title, author, genre, height, publisher):
 
 books = find_book("Убийство в поезде", "Агата Кристи", "Детектив", 300, "Аркаим")
 print(books)
+
+# with open('books.csv', 'w', newline='', encoding='utf-8') as file:
+#     # Создаем объект writer для записи данных в файл
+#     writer = csv.DictWriter(file, fieldnames=['title', 'author', 'genre', 'height', 'publisher'])
+    
+#     # Записываем заголовки столбцов
+#     writer.writeheader()
+    
+#     # Записываем данные в файл
+#     writer.writerows(file)
