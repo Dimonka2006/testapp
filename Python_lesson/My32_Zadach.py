@@ -44,16 +44,17 @@ print(slovar)
 def top_keys(result_dict, n=10):
     result= {}
     max = 0
+    max_key = ""
+    
     while n > 0: 
         n = n-1
-        max_key = ""
+        
         for key in result_dict:
             value = result_dict[key]
             if max < value:
                 max = value 
-                if max_key < key:
-                    max_key = key
-
+                max_key = key
+       
     return result          
 result_dict = slovar
 proverka = top_keys(result_dict, n=10)  
