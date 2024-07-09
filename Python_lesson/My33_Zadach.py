@@ -29,7 +29,7 @@ new_book("Убийство в поезде", "Агата Кристи", "Дет�
 print(lib[-2:])
 # #print(lib)
 
-def find_book(title = None, author = None, genre = None, height = None, publisher = None):
+def find_book(title = None, author = None, genre = None, height = None, publisher = None): # не обязательные именованные аргументы
     resault_sp = []
     for book_dict in lib:
 #         #print(book_dict)
@@ -41,14 +41,22 @@ def find_book(title = None, author = None, genre = None, height = None, publishe
     return resault_sp
 
 books = find_book(genre = "history") # Поиск по именованному аргументу
-print(books)
+# print(books)
 
-# # with open('books1.csv', 'w', newline='', encoding='utf-8') as file:
-# #     # Создаем объект writer для записи данных в файл
-# #     writer = csv.DictWriter(file, fieldnames=['title', 'author', 'genre', 'height', 'publisher'])
+#def remove_book()
+data = []
+with open('newbooks.csv', 'w', newline='', encoding='utf-8') as csvfile:
+     # Создаем объект writer для записи данных в файл
+    writer = csv.DictWriter(csvfile, fieldnames=['Title', 'Author', 'Genre', 'Height', 'Publisher'])
     
-# #     # Записываем заголовки столбцов
-# #     writer.writeheader()
+
     
-# #     # Записываем данные в файл
-# #     writer.writerows(file)
+    # Записываем данные в файл
+#     writer.writerows(lib)
+# lib_books = open(csvfile)     
+# print(lib_books) 
+#     for row in writer:
+#         data.append(row)
+#     # читаем заголовки столбцов
+#         #print(row)         
+# print(data) 
