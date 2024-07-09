@@ -48,15 +48,13 @@ data = []
 with open('newbooks.csv', 'w', newline='', encoding='utf-8') as csvfile:
      # Создаем объект writer для записи данных в файл
     writer = csv.DictWriter(csvfile, fieldnames=['Title', 'Author', 'Genre', 'Height', 'Publisher'])
-    
-
-    
+        
     # Записываем данные в файл
 #     writer.writerows(lib)
 # lib_books = open(csvfile)     
 # print(lib_books) 
-#     for row in writer:
-#         data.append(row)
+    for row in writer:
+       data.append(row)
 #     # читаем заголовки столбцов
-#         #print(row)         
+       print(row)         
 # print(data) 
