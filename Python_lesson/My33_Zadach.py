@@ -43,19 +43,24 @@ def find_book(title = None, author = None, genre = None, height = None, publishe
 books = find_book(genre = "history") # Поиск по именованному аргументу
 # print(books)
 
-#def remove_book()
+# Удаляем строку, например, под номером -1
+# del lib[-1:]
+#print(lib[-2:])
+
 data = []
 with open('newbooks.csv', 'w', newline='', encoding='utf-8') as csvfile:
      # Создаем объект writer для записи данных в файл
-    writer = csv.DictWriter(csvfile, fieldnames=['Title', 'Author', 'Genre', 'Height', 'Publisher'])
+    # writer = csv.DictWriter(csvfile, fieldnames=['Title', 'Author', 'Genre', 'Height', 'Publisher'])
+    writer = csv.writer(csvfile)
+    #csvfile = lib
 #  #Записываем заголовок в файл
-#     writer.writeheader()
+    writer.writeheader()
 #  #Записываем данные в файл
-#     writer.writerows()
+    writer.writerows()
 # lib_books = open(csvfile)     
 # print(lib_books) 
-    for row in writer:
-       data.append(row)
-#     # читаем заголовки столбцов
-       print(row)         
+#     for row in writer:
+#        data.append(row)
+# #   # читаем заголовки столбцов
+#        print(row)         
 # print(data) 
