@@ -26,7 +26,7 @@ def new_book(title, author, genre, height, publisher):
      lib.append(book)
 
 new_book("Убийство в поезде", "Агата Кристи", "Детектив", 300, "Аркаим")
-print(lib[-2:])
+#print(lib[-2:])
 # #print(lib)
 
 def find_book(title = None, author = None, genre = None, height = None, publisher = None): # не обязательные именованные аргументы
@@ -48,9 +48,10 @@ data = []
 with open('newbooks.csv', 'w', newline='', encoding='utf-8') as csvfile:
      # Создаем объект writer для записи данных в файл
     writer = csv.DictWriter(csvfile, fieldnames=['Title', 'Author', 'Genre', 'Height', 'Publisher'])
-        
-    # Записываем данные в файл
-#     writer.writerows(lib)
+#  #Записываем заголовок в файл
+#     writer.writeheader()
+#  #Записываем данные в файл
+#     writer.writerows()
 # lib_books = open(csvfile)     
 # print(lib_books) 
     for row in writer:
