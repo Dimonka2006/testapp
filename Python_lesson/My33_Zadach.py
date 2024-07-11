@@ -56,15 +56,19 @@ def remove_book(lib, title):
 # del lib[-1:] # из общей библиотеки
 #print(lib[-2:])
 
+
+new_lib = []
 def save_books_to_csv():
     
     with open('new_books.csv', 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=['Title', 'Author', 'Genre', 'Height', 'Publisher'])
-        writer.writerow()
-        for book in books:
-            writer.writerow(book)
-            print(book)
-                
-# proverka = save_books_to_csv(books)
-# print(proverka)
+
+        # writer.writeheader()
+        # for book in books:
+        #     writer.writerow(book)
+
+        for row in writer:
+            new_lib.append(row)
+proverka = save_books_to_csv(books)
+print(new_lib)
     
