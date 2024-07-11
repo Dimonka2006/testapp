@@ -43,24 +43,28 @@ def find_book(title = None, author = None, genre = None, height = None, publishe
 books = find_book(genre = "history") # Поиск по именованному аргументу
 # print(books)
 
-# Удаляем строку, например, под номером -1
-# del lib[-1:]
+
+def remove_book(lib, title):
+    # Удаляет книгу с заданным названием из списка книг.
+    for i, book in enumerate(lib):
+        if book['title'] == title:
+            del lib[i]
+            break
+    # Удаляем книгу
+    remove_book(lib, 'The Hobbit')
+# 2 вариант: удаляем строку, например, под номером -1
+# del lib[-1:] # из общей библиотеки
 #print(lib[-2:])
 
-data = []
-with open('newbooks.csv', 'w', newline='', encoding='utf-8') as csvfile:
-     # Создаем объект writer для записи данных в файл
-    # writer = csv.DictWriter(csvfile, fieldnames=['Title', 'Author', 'Genre', 'Height', 'Publisher'])
-    writer = csv.writer(csvfile)
-    #csvfile = lib
-#  #Записываем заголовок в файл
-    writer.writeheader()
-#  #Записываем данные в файл
-    writer.writerows()
-# lib_books = open(csvfile)     
-# print(lib_books) 
-#     for row in writer:
-#        data.append(row)
-# #   # читаем заголовки столбцов
-#        print(row)         
-# print(data) 
+def save_books_to_csv():
+    
+    with open('new_books.csv', 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=['Title', 'Author', 'Genre', 'Height', 'Publisher'])
+        writer.writerow()
+        for book in books:
+            writer.writerow(book)
+            print(book)
+                
+# proverka = save_books_to_csv(books)
+# print(proverka)
+    
