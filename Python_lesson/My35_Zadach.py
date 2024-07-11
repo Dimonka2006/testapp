@@ -31,3 +31,16 @@ conn.commit()
 
 # Закрываем соединение с базой данных
 conn.close()
+
+# поиск в базе данных sq
+conn = sqlite3.connect('books.db')
+cur = conn.cursor()
+
+query = "SELECT  *  FROM books WHERE author = 'Hemingway, Ernest';"
+cur.execute(query)
+results = cur.fetchall()
+
+for result in results:
+    print(result)
+
+conn.close()
