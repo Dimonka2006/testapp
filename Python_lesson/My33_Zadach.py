@@ -47,28 +47,26 @@ books = find_book(genre = "history") # Поиск по именованному 
 def remove_book(lib, title):
     # Удаляет книгу с заданным названием из списка книг.
     for i, book in enumerate(lib):
-        if book['title'] == title:
-            del lib[i]
+        if book['Title'] == title:
+            del lib[i] #pop - использовать
             break
     # Удаляем книгу
-    remove_book(lib, 'The Hobbit')
+remove_book(lib, 'Orientalism')
 # 2 вариант: удаляем строку, например, под номером -1
 # del lib[-1:] # из общей библиотеки
 #print(lib[-2:])
 
 
-new_lib = []
+
 def save_books_to_csv():
     
     with open('new_books.csv', 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=['Title', 'Author', 'Genre', 'Height', 'Publisher'])
 
-        # writer.writeheader()
-        # for book in books:
-        #     writer.writerow(book)
+        writer.writeheader()
+        for book in books:
+            writer.writerow(book)
 
-        for row in writer:
-            new_lib.append(row)
-proverka = save_books_to_csv(books)
-print(new_lib)
+save_books_to_csv()
+
     
