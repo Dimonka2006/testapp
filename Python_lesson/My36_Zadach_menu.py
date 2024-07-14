@@ -11,7 +11,7 @@ def search():
     conn = sqlite3.connect('books.db')
     cur = conn.cursor()
 
-    query = "SELECT  *  FROM books WHERE author = 'Hemingway, Ernest';"
+    query = "SELECT  *  Из книг в которых автор = 'Hemingway, Ernest';"
     cur.execute(query)
     results = cur.fetchall()
 
