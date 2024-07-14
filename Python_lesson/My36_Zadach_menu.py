@@ -1,11 +1,25 @@
 # Создание меню для работы с 'books.db'
+import sqlite3
 
 def spisok_command():
     pass
 
 
 
-def serch():
+def search():
+    # поиск в базе данных sq
+    conn = sqlite3.connect('books.db')
+    cur = conn.cursor()
+
+    query = "SELECT  *  FROM books WHERE author = 'Hemingway, Ernest';"
+    cur.execute(query)
+    results = cur.fetchall()
+
+    for result in results:
+        print(result)
+
+    conn.close()
+
     print('serching')
 
 def plus_db():
