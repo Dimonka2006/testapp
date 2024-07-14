@@ -29,10 +29,13 @@ def dell_book():
     print('delling') 
 
 def append_book():
-    print('appending')        
+    print('appending')     
+
+def kill_duble_book():
+    print('killing')      
 
 def menu():
-    command = [('Serch', serch), ('Plus_db', plus_db), ('Dell_book', dell_book), ('Append_book', append_book)]
+    command = [('Search', search), ('Plus_db', plus_db), ('Dell_book', dell_book), ('Append_book', append_book), ('Kill_duble_book', kill_duble_book)]
     
 
     while True:
