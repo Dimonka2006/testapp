@@ -10,8 +10,9 @@ def search():
     # поиск в базе данных sq
     conn = sqlite3.connect('books.db')
     cur = conn.cursor()
+    search_author = input('whrite author ' )
 
-    query = "SELECT  *  Из книг в которых автор = 'Hemingway, Ernest';"
+    query = "SELECT  *  FROM books WHERE author = search_author;"
     cur.execute(query)
     results = cur.fetchall()
 
