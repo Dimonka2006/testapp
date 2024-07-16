@@ -71,7 +71,3 @@ def menu():
         if continue_program == 'n':
             break
 menu()
-
-# Вызываем функции
-search_book()  
-dell_book()
