@@ -52,10 +52,12 @@ def append_book():
     cursor = conn.cursor()
     # Запрашиваем у пользователя данные по книге
     
-    info_book = input("Введите 'Название книги', 'Автор', 'Жанр', 'Страниц', 'Издатель': ")
+    info_book = input("Введите 'Название книги', 'Автор', 'Жанр', Страниц, 'Издатель': ")
+
     # Формируем SQL-запрос для добавления новой записи
-    sql = f"INSERT INTO books (title, author, genre, height, publisher) VALUES ('title', 'author', 'genre', 'height', 'publisher');"
-    #sql = 'INSERT INTO books (Title, Author, Genre, Height, Publisher) VALUES (?, ?, ?, ?, ?)'
+    #sql = f"INSERT INTO books (Title, Author, Genre, Height, Publisher) VALUES ('title', 'author', 'genre', height, 'publisher');"
+    sql = 'INSERT INTO books (Title, Author, Genre, Height, Publisher) VALUES (?, ?, ?, ?, ?)'
+    #sql = "INSERT INTO books VALUES (?, ?, ?, ?, ?), (row['Title'], row['Author'], row['Genre'], ['Height'], row['Publisher']);"
     # Добавляем данные в таблицу
     cursor.execute(sql, (info_book))
 
