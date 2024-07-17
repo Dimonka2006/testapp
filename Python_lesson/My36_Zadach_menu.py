@@ -54,7 +54,7 @@ def append_book():
     
     info_book = input("Введите 'Название книги', 'Автор', 'Жанр', 'Страниц', 'Издатель': ")
     # Формируем SQL-запрос для добавления новой записи
-    sql = f"INSERT INTO books (title, author, genre, height, publisher) VALUES ('{title}', '{author}', '{genre}', {height}, '{publisher}';)"
+    sql = f"INSERT INTO books (title, author, genre, height, publisher) VALUES ('title', 'author', 'genre', 'height', 'publisher');"
     #sql = 'INSERT INTO books (Title, Author, Genre, Height, Publisher) VALUES (?, ?, ?, ?, ?)'
     # Добавляем данные в таблицу
     cursor.execute(sql, (info_book))
