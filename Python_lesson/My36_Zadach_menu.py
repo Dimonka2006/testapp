@@ -46,7 +46,26 @@ def dell_book():
     conn.close()
 
 def append_book():
-    print('appending')     
+    print('appending')
+    # Создаем соединение с базой данных
+    conn = sqlite3.connect('books.db')
+    cursor = conn.cursor()
+    # Запрашиваем у пользователя данные по книге
+    
+    info_book = input(" Введите 'Название книги', 'Автор', 'Жанр', 'Страниц', 'Издатель': ")
+    # Формируем SQL-запрос для добавления новой записи
+    sql = f"INSERT INTO books (title, author, genre, height, publisher) VALUES ('{title}', '{author}', '{genre}', {height}, '{publisher}';)"
+
+    # Добавляем данные в таблицу
+    cursor.execute(sql, (info_book))
+
+    # Сохраняем изменения в базе данных
+    conn.commit()
+
+    # Закрываем соединение
+    conn.close()
+
+
 
 def kill_duble_book():
     print('killing')      
