@@ -55,7 +55,7 @@ def append_book():
     
     info_book = input("Введите 'Название книги', 'Автор', 'Жанр', Страниц, 'Издатель': ")
 
-    # Формируем SQL-запрос для добавления новой записи
+    # Формируем SQL-запрос для добавления новой записи  # SELECT
     #sql = f"INSERT INTO books (Title, Author, Genre, Height, Publisher) VALUES ('title', 'author', 'genre', height, 'publisher');"
     sql = 'INSERT INTO books (Title, Author, Genre, Height, Publisher) VALUES (?, ?, ?, ?, ?)'
     #sql = "INSERT INTO books VALUES (?, ?, ?, ?, ?), (row['Title'], row['Author'], row['Genre'], ['Height'], row['Publisher']);"
