@@ -50,17 +50,16 @@ def append_book():
     print('appending')
     # Создаем соединение с базой данных
     conn = sqlite3.connect('books.db')
-    cursor = conn.cursor()
+    cur = conn.cursor()
     # Запрашиваем у пользователя данные по книге
     
     info_book = input("Введите 'Название книги', 'Автор', 'Жанр', Страниц, 'Издатель': ")
 
     # Формируем SQL-запрос для добавления новой записи  # SELECT
-    #sql = f"INSERT INTO books (Title, Author, Genre, Height, Publisher) VALUES ('title', 'author', 'genre', height, 'publisher');"
     sql = 'INSERT INTO books (Title, Author, Genre, Height, Publisher) VALUES (?, ?, ?, ?, ?)'
-    #sql = "INSERT INTO books VALUES (?, ?, ?, ?, ?), (row['Title'], row['Author'], row['Genre'], ['Height'], row['Publisher']);"
+
     # Добавляем данные в таблицу
-    cursor.execute(sql, (info_book))
+    cur.execute(sql, (info_book))
 
     # Сохраняем изменения в базе данных
     conn.commit()
@@ -73,55 +72,20 @@ def append_book():
 def kill_duble_book():
     print('killing')      
 
-     # Открываем соединение с базой данных
+    # Подключаемся к базе данных
     conn = sqlite3.connect('books.db')
-    cursor = conn.cursor()
+    cur = conn.cursor()
 
-    # Читаем все записи из таблицы в список
-    cursor.execute("SELECT  *  FROM books")
-    records = cursor.fetchall()
+    # Выполняем запрос с оператором DISTINCT
+    cur.execute("SELECT DISTINCT  *  FROM books")
 
-    # Проверяем каждую запись на наличие дубликатов
-    unique_records = []
-    for record in records:
-        title, author, genre, height, publisher = record
-        if (title, author, genre, height, publisher) not in unique_records:
-            unique_records.append((title, author, genre, height, publisher))
-
-    # Удаляем дубликаты из списка
-    unique_records = list(set(unique_records))
-    print(list(set(unique_records)))
-
-    # Записываем уникальные записи обратно в базу данных
-    cursor.executemany("INSERT OR REPLACE INTO books VALUES (?, ?, ?, ?, ?)", unique_records)
+    # Обновляем базу данных
     conn.commit()
 
-    # Закрываем соединение с базой данных
+    # Закрываем соединение
     conn.close()
 
-# Открываем соединение с базой данных
-    # conn = sqlite3.connect('books.db')
-    # cursor = conn.cursor()
 
-    # # Читаем все записи из таблицы в список
-    # cursor.execute("SELECT Title FROM books GROUP BY Title HAVING count( * ) > 1")
-    # titles = cursor.fetchall()
-
-    # # Проверяем каждую запись на наличие дубликатов
-    # unique_titles = []
-    # for title in titles:
-    #     if title[0] not in unique_titles:
-    #         unique_titles.append(title[0])
-
-    # # Удаляем дубликаты из списка
-    # unique_titles = list(set(unique_titles))
-
-    # # Записываем уникальные записи обратно в базу данных
-    # cursor.executemany("DELETE FROM books WHERE Title IN (?)", [(title,) for title in unique_titles])
-    # conn.commit()
-
-    # # Закрываем соединение с базой данных
-    # conn.close()
 
 def menu():
     command = [('Search_book', search_book), ('Plus_db', plus_db), ('Dell_book', dell_book), ('Append_book', append_book), ('Kill_duble_book', kill_duble_book)]
