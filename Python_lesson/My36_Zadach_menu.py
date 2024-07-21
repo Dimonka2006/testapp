@@ -74,18 +74,10 @@ def append_book():
 def kill_duble_book():
     print('killing')      
 
-    # Подключаемся к базе данных
-    conn = sqlite3.connect('books.db')
-    cur = conn.cursor()
 
-    # Выполняем запрос с оператором DISTINCT dell *
-    cur.execute("SELECT DISTINCT  *  FROM books")
 
-    # Обновляем базу данных
-    conn.commit()
 
-    # Закрываем соединение
-    conn.close()
+
 
 
 
