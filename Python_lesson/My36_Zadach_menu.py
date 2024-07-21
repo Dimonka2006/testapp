@@ -43,26 +43,17 @@ def search_book():
 def dell_book():
     print('delling') 
 
-    conn = sqlite3.connect('books.db')
-    cur = conn.cursor()
     # Запрашиваем у пользователя название книги
     book_name = input("Введите название книги: ")
 
     query = 'DELETE FROM books WHERE title = ?'
-    cur.execute(query, (book_name,))
+    cur = run_sql(query, (book_name,))
 
-    # Сохранение изменений в базе данных
-    conn.commit()
 
-    # Закрытие соединения с базой данных
-    conn.close()
 
 def append_book():
     print('appending')
-    #try:
-    # Создаем соединение с базой данных
-    conn = sqlite3.connect('books.db')
-    cur = conn.cursor()
+
     # Запрашиваем у пользователя данные по книге
     title = input("Введите название книги: ")
     author = input("Введите автора книги: ")
@@ -74,15 +65,10 @@ def append_book():
     sql = 'INSERT INTO books (title, author, genre, height, publisher) VALUES (?, ?, ?, ?, ?)'
 
         # Добавляем данные в таблицу
-    cur.execute(sql, (title, author, genre, height, publisher))
+    cur = run_sql(sql, (title, author, genre, height, publisher))
 
-        # Сохраняем изменения в базе данных
-    conn.commit()
-            # Закрываем соединение
-    #conn.close()
-    #cur.close()
-    #except Exception as e:
-    #    print(f'Ошибка при добавлении книги: {e}')
+
+
 
 
 def kill_duble_book():
