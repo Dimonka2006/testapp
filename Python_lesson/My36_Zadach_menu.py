@@ -68,15 +68,8 @@ def append_book():
     cur = run_sql(sql, (title, author, genre, height, publisher))
 
 
-
-
-
 def kill_duble_book():
     print('killing')      
-
-
-
-
 
 
 
