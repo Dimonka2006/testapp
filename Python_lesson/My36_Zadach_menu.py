@@ -5,17 +5,36 @@ from collections import Counter
 def spisok_command():
     pass
 
+def run_sql(sql, sql_param):
+    conn = sqlite3.connect('books.db')
+    cur = conn.cursor()
+    try:
+        cur.execute(sql, sql_param)
+        conn.commit()
+    except Exception as e:
+        print("Error running SQL: ", e)
+        conn.rollback()
+    finally:
+        cur.close()
+        conn.close()
 
 def search_book():
     print('searching')
     # поиск в базе данных sq
     conn = sqlite3.connect('books.db')
     cur = conn.cursor()
-    # Запрашиваем у пользователя имя автора
-    author_name = input("Введите имя автора: ")
+    print('Title', 'Название книги')
+    print('Author', 'Автор книги')
+    print('Genre', 'Жанр книги')
+    print('Height', 'Высота книги')
+    print('Publisher', 'Издательство')
+    # Запрашиваем у пользователя параметр для поиска
+    column = input("Введите название столбца для поиска: ")
+    value = input("Введите значение для поиска: ")
 
-    query = 'SELECT  *  FROM books WHERE Author=?'
-    cur.execute(query, (author_name,))
+    # Формируем SQL-запрос
+    query = f'SELECT  *  FROM books WHERE {column} LIKE ?'
+    cur.execute(query, (value,))
     # Получаем результаты запроса
     results = cur.fetchall()
  
@@ -25,9 +44,6 @@ def search_book():
     cur.close()
     conn.close()
 
-
-def plus_db():
-    print('plussing')   
 
 def dell_book():
     print('delling') 
@@ -48,25 +64,30 @@ def dell_book():
 
 def append_book():
     print('appending')
-    # Создаем соединение с базой данных
-    conn = sqlite3.connect('books.db')
-    cur = conn.cursor()
-    # Запрашиваем у пользователя данные по книге
-    
-    info_book = input("Введите 'Название книги', 'Автор', 'Жанр', Страниц, 'Издатель': ")
+    try:
+        # Создаем соединение с базой данных
+        conn = sqlite3.connect('books.db')
+        cur = conn.cursor()
+        # Запрашиваем у пользователя данные по книге
+        title = input("Введите название книги: ")
+        author = input("Введите автора книги: ")
+        genre = input("Введите жанр книги: ")
+        height = input("Введите высоту книги: ")
+        publisher = input("Введите издателя книги: ")
 
-    # Формируем SQL-запрос для добавления новой записи  # SELECT
-    sql = 'INSERT INTO books (Title, Author, Genre, Height, Publisher) VALUES (?, ?, ?, ?, ?)'
+        # Формируем SQL-запрос для добавления новой записи
+        sql = 'INSERT INTO books (Title, Author, Genre, Height, Publisher) VALUES (?, ?, ?, ?, ?)'
 
-    # Добавляем данные в таблицу
-    cur.execute(sql, (info_book))
+        # Добавляем данные в таблицу
+        cur.execute(sql, (title, author, genre, height, publisher))
 
-    # Сохраняем изменения в базе данных
-    conn.commit()
-
-    # Закрываем соединение
-    conn.close()
-
+        # Сохраняем изменения в базе данных
+        conn.commit()
+            # Закрываем соединение
+        conn.close()
+        cur.close()
+    except Exception as e:
+        print(f'Ошибка при добавлении книги: {e}')
 
 
 def kill_duble_book():
@@ -88,7 +109,7 @@ def kill_duble_book():
 
 
 def menu():
-    command = [('Search_book', search_book), ('Plus_db', plus_db), ('Dell_book', dell_book), ('Append_book', append_book), ('Kill_duble_book', kill_duble_book)]
+    command = [('Search_book', search_book), ('Dell_book', dell_book), ('Append_book', append_book), ('Kill_duble_book', kill_duble_book)]
     
 
     while True:
