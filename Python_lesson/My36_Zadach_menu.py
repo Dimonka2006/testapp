@@ -69,7 +69,30 @@ def append_book():
 
 
 def kill_duble_book():
-    print('killing')      
+    print('killing')
+    # Открываем соединение с базой данных
+    conn = sqlite3.connect('books.db')
+    cursor = conn.cursor()
+
+    # # Читаем все записи из таблицы в список
+    cursor.execute("SELECT Title FROM books GROUP BY Title HAVING count( * ) > 1")
+    titles = cursor.fetchall()
+
+    # # Проверяем каждую запись на наличие дубликатов
+    unique_titles = []
+    for title in titles:
+        if title[0] not in unique_titles:
+            unique_titles.append(title[0])
+
+    # # Удаляем дубликаты из списка
+    unique_titles = list(set(unique_titles))
+
+    # # Записываем уникальные записи обратно в базу данных
+    cursor.executemany("DELETE FROM books WHERE Title IN (?)", [(title,) for title in unique_titles])
+    conn.commit()
+
+     # Закрываем соединение с базой данных
+    conn.close()      
 
 
 
