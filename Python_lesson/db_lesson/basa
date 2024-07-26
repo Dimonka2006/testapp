@@ -1,0 +1,2 @@
+SELECT * FROM users
+WHERE (Doljnost == 'менеджер' OR Doljnost == 'секретарь') AND ORab > 1
