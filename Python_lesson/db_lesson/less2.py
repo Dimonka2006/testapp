@@ -12,3 +12,7 @@ with sqlite3.connect('test2.db') as con:
                 ZP INTEGER
                 )
                 ''')
+    res = cur.execute('''SELECT * FROM users''')
+    #print(res.fetchmany(5))
+    for worker in res.fetchmany(5): # вывели список 
+        print(worker)
