@@ -9,5 +9,5 @@ data = [
 "2024-06-19 robot Change permissions"
 ]
 
-def data_user(user, data);
-    for i in data if i = user
+def data_user(user, data):
+    for i in data if i
