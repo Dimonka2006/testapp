@@ -12,5 +12,5 @@ if [[ -n $search_str ]]; then
     # user_name_log=$(echo "$search_str" | cut -d " " -f14)
     # user_famil_log=$(echo "$search_str" | cut -d " " -f15)
 
-    echo "$search_str" | cut -d " " -f6,7,14,15 >> logins_$(date +%Y%m%d)
+    echo "$search_str" | cut -d " " -f3,14,15 >> logins_$(date +%Y%m%d)
 fi
