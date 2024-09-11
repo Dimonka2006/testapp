@@ -1,15 +1,16 @@
 #!/bin/bash
 set -e
-
-
+if [ ! -f "temp" ]; then
+  rm -f temp
+fi
 pfile=$(find . -maxdepth 1 -name "message*" -printf "%f\n")
 for name in $pfile
 do
 
-search_str=$(cat $name | grep 'SERVER: INFO - SUCCESS LOGIN by ')
+cat $name | grep 'SERVER: INFO - SUCCESS LOGIN by ' >> temp
+done
 
-if [[ -n $search_str ]]; then
-
+search_str=$(cat temp)
 
 for i in $search_str
 
@@ -22,7 +23,6 @@ echo $i
     #echo $i | cut -d " " -f3,14,15 > logins_$file_data
     #touch logins_$date_log
 
-    done
+done
 
 fi
-done
