@@ -12,8 +12,7 @@ done
 
 search_str=$(cat temp)
 
-for i in $search_str
-
+if $
 
 do
 echo $i
