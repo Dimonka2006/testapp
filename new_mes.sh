@@ -1,14 +1,10 @@
 #!/bin/bash
 
-<<<<<<< HEAD
 touch logins_$(date +%Y%m%d)
-=======
->>>>>>> 76bd3982b4d1b46f7d921d091640e630e55d986d
 
 pfile=$(find . -maxdepth 1 -name "message*" -printf "%f\n")
 
 search_str=$(cat $pfile | grep 'SERVER: INFO - SUCCESS LOGIN by ')
-<<<<<<< HEAD
 
 if [[ -n $search_str ]]; then
     time_log=$(echo "$search_str" | cut -d " " -f7)
@@ -17,7 +13,6 @@ if [[ -n $search_str ]]; then
     user_famil_log=$(echo "$search_str" | cut -d " " -f15)
     echo -e "$time_log $date_log $user_log $user_famil_log" >> logins_$(date +%Y%m%d)
 fi
-=======
 
 if [[ -n $search_str ]]; then
 
@@ -32,4 +27,3 @@ if [[ -n $search_str ]]; then
     echo "$search_str" | cut -d " " -f3,14,15 >> logins_$date_log
     done
 fi
->>>>>>> 76bd3982b4d1b46f7d921d091640e630e55d986d
