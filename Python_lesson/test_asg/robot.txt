@@ -1,0 +1,4 @@
+2024-05-19 robot Clear filesystem
+2024-06-09 robot Deploy new version
+2024-06-19 robot Deploy new version
+2024-06-19 robot Change permissions
