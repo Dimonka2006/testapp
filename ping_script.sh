@@ -1,25 +1,27 @@
 #!/bin/bash
-# подсчитываю кол-во входных переменных
-# если не равно 2 пишет ошибку и закрывает программу
-if [[ $# != 2 ]] ; then
+
+usage() {
     echo "Usage: $0 --host HOSTNAME --timeout SECONDS" >&2
     exit 1
-fi
+}
 
-if [[ "$1" == "--host" && "$3" == "--timeout" ]] ; then
-    shift
-    shift
-    # shift убирает первый и второй аргументы из списка 
-   
+check_parameters() {
+    if [[ $# != 2 ]] || ! [[ "$1" == "--host" ]] || ! [[ "$2" == "--timeout" ]]; 
+    then
+        usage
+    fi
+}
+
+main() {
+    check_parameters "$@"
+    
     host="$1"
-    timeout="$1"
-else
-    echo "Введен неверный формат параметров." >&2
-    exit 1
-fi
+    timeout="$2"
+    
+    ping -c 4 -w "${timeout}" "${host}"
+}
 
-ping -c 4 -w "${timeout}" "${host}"
+main "$@"
 
-#./ping_script.sh --host HOSTNAME --timeout SECONDS ./ping_script.sh --host example.com --timeout 5
 
 # HOSTNAME – это имя хоста, а SECONDS – количество секунд.
