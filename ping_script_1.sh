@@ -17,6 +17,6 @@ fi
 
 ping -c 4 -w "${timeout}" "${host}"
 
-# ./ping_script_1.sh --timeout 5 --host example.com 
+# ./ping_script_1.sh 5 example.com 
 
 # HOSTNAME – это имя хоста, а SECONDS – количество секунд.

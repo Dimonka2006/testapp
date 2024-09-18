@@ -23,5 +23,4 @@ main() {
 
 main "$@"
 
-
-# HOSTNAME – это имя хоста, а SECONDS – количество секунд.
+# ./ping_script.sh 5 example.com
