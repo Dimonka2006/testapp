@@ -1,3 +1,5 @@
+import os
+
 data = [
 "2024-05-01 vasya Create file /etc/cron.d/old-cron",
 "2024-05-19 robot Clear filesystem",
@@ -9,5 +11,16 @@ data = [
 "2024-06-19 robot Change permissions"
 ]
 
-def data_user(user, data):
-    for i in data if i
+# Создаем пустой файл для записи данных
+output_file = 'output.txt'
+with open(output_file, 'w') as f:
+    for line in data:
+        if 'robot' in line:
+            f.write(line + '\n')
+
+print('Записи скопированы в файл:', output_file)
+
+#сначала проверяет каждую строку в списке data, 
+# ищет подстроку robot, и записывает такие строки в файл output.txt. 
+# В конце выполнения он выведет сообщение о том, 
+# что данные были успешно скопированы в файл.
