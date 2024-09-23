@@ -1,0 +1,16 @@
+- name: Test 
+  hosts: mail, yandex
+  become: yes
+
+  vars:
+   position: boss
+  
+  tasks:
+  
+
+  - name: Copy File
+    template:
+      src: ./111.j2
+      dest: /home/dus0182/config
+      mode: 0777
+   

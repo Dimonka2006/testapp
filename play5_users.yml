@@ -1,0 +1,22 @@
+- name: Create User
+  hosts: mail, yandex
+  become: yes
+
+  tasks:
+
+  - name: Create Groups
+    group:
+      name: "{{item}}"
+      state: present
+    loop:
+      - devops
+      - test
+
+
+  - name: Create users
+    user:
+      name: dus0182
+      shell: /bin/bash
+      groups: devops,test
+      append: yes
+      home: /home/dus0182

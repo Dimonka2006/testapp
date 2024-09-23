@@ -1,0 +1,29 @@
+- name: Ping Servers
+  hosts: all
+  become: yes
+
+  vars:
+    pakages:
+            - htop
+            - tree
+            - rsync
+    
+    file_src: robot.txt
+    file_dest: /srv
+
+  tasks:
+  - name: Task ping
+    ping:
+
+# Centos9 установка программ через консоль   sudo state: yum install ... -y
+     
+  - name: Install program 
+    yum:
+      pkg: "{{pakages}}"
+      state: present
+
+  - name: Copy File
+    copy:
+      src: "{{file_src}}"
+      dest: "{{file_dest}}"
+      mode: 0777

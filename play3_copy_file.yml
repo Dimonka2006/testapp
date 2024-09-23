@@ -1,0 +1,19 @@
+- name: Ping Servers
+  hosts: all
+  become: yes
+
+  vars:
+    
+    file_src: robot.txt
+    file_dest: /src
+
+  tasks:
+  - name: Task ping
+    ping:
+
+
+  - name: Copy File
+    copy:
+      src: "{{file_src}}"
+      dest: "{{file_dest}}"
+      mode: 0777

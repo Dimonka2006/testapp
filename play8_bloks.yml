@@ -1,0 +1,30 @@
+- name: Test Bloks
+  hosts: mail, yandex
+  become: yes
+
+  vars:
+    file_src: deploy_script.yml
+    file_dest: /home/dus/scenary/
+
+  tasks:
+  - block:
+    - name: Install Pakages
+      yum:
+        pkg:
+          - tree
+          - nmon
+          - htop
+        state: latest
+
+    - name: Grete Folder
+      file:
+        path: /home/dus/scenary
+        state: directory
+    #when: ansible_hostname ==  "mail"  (block)
+
+  - name: Copy File
+    copy:
+      src: "{{file_src}}"
+      dest: "{{file_dest}}"
+      mode: 0777
+    #when: ansible_hostname ==  "yandex"  

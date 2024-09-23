@@ -1,0 +1,17 @@
+- name: Ping Servers
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Task ping
+    ping:
+
+
+  - name: copy File
+    copy:
+       src: ./robot.txt
+       dest: /home/dus/
+       mode: 0774     
+
+  - name: Version
+     

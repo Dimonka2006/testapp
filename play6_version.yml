@@ -1,0 +1,35 @@
+- name: Massages
+  hosts: mail, yandex
+  become: yes
+
+  vars:
+    slovo1: DOM
+    slovo2: in
+    mesto: RUS
+
+
+  tasks:
+
+  - name: Print Vars
+    debug:
+      var: slovo1
+
+    debug:
+      msg: "Moj dom v {{mesto}}"
+
+    debug:
+      msg: "Moj {{slovo1}} {{slovo2}} {{mesto}}" 
+
+
+  - set_fact:
+      message: "Moj {{slovo1}} {{slovo2}} {{mesto}}" 
+
+  - debug: 
+      var: message   
+# если опрашиваем Ubuntu Linux  можем поглядеть версию так
+  - debug:
+      var: ansibal_distribution_version
+
+  - debug:
+      var: "Linux: {{ansibal_distribution}} Verion: {{nsibal_distribution_version}}"
+           
