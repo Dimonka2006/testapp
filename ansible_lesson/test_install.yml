@@ -1,0 +1,19 @@
+---
+- name: Install MC on CentOS 9 servers
+  hosts: mail, yandex
+  become: true
+  tasks:
+    - name: Ensure EPEL repository is installed
+      yum:
+        name: epel-release
+        state: present
+
+    - name: Install MC package
+      yum:
+        name: mc
+        state: latest
+
+    - name: Install nano    
+      yum:
+        name: nano
+        state: latest
