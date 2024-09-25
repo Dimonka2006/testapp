@@ -11,14 +11,14 @@
   tasks:
 
   - name: Print Vars
-    debug:
-      var: slovo1
+      debug:
+        var: slovo1
 
-    debug:
-      msg: "Moj dom v {{mesto}}"
+      debug:
+        msg: "Moj dom v {{mesto}}"
 
-    debug:
-      msg: "Moj {{slovo1}} {{slovo2}} {{mesto}}" 
+      debug:
+        msg: "Moj {{slovo1}} {{slovo2}} {{mesto}}" 
 
 
   - set_fact:
