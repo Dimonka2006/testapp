@@ -8,7 +8,7 @@ def kill_duble_strok():
     unique = []
     [unique.append(item) for item in l if item not in unique]
     if unique[0]:
-        print('\nДубликаты удалены')
+        print('\n Дубликаты удалены')
     f.close()
 
     filename2 = target + 'unic_Sp_book.txt'
