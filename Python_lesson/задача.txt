@@ -1,0 +1,53 @@
+Дaнa cтрoкa, cocтoящaя из бyкв aнглийcкoгo aлфaвитa, знaкoв прeпинaния и прoбeлoв. 
+Трeбyeтcя пocчитaть cкoлькo рaз cлoвo "Rumpelstiltskin" мoжнo coбрaть из бyкв этoй cтрoки. 
+Кaждyю бyквy мoжнo иcпoльзoвaть тoлькo oдин рaз, рeгиcтр знaчeния нe имeeт.
+пример 1:   countWord("Rumpelstiltskin") => 1
+пример 2:   countWord("Rabbits under moonlight play, elves laugh, singing tales in late summer, kittens in nests.") => 1
+
+
+def countWord(word, string):
+    if len(string) < len(word):
+        return 0
+    used_letters = set()
+
+    def checktreck(current_index):
+        if current_index == len(word):
+            return True
+
+        for i in range(current_index, len(string)):
+            if string[i].lower() not in used_letters:
+                used_letters.add(string[i].lower())
+
+                if checktreck(current_index + 1):
+                    return True
+                
+                used_letters.remove(string[i].lower())
+        
+        return False
+    
+    return checktreck(0)
+
+string = input().strip()
+
+print(countWord(word, string))
+
+
+- Используется метод .lower() для перевода всех букв в нижний регистр, чтобы упростить сравнение.
+- Метод .strip() убирает лишние пробелы в начале и конце строки.
+
+def obrabotka(text):
+    
+    keys = [key.strip('.,!?').lower() for key in text.split()] # Разбиваем текст на слова, удаляем знаки препинания и приводим слова к нижнему регистру
+
+    result_dict = {}
+    for key in keys:
+        
+        if key in result_dict and len(key) > 3: # Проходим по каждому элементу списка
+            result_dict[key] += 1 # Если элемент уже есть в словаре, увеличиваем его счетчик
+        
+        elif len(key) > 3:  # добавляем дополнительное условие
+            result_dict[key] = 1 # Если элемент новый, добавляем его со счетчиком 1
+        
+    return result_dict
+slovar = obrabotka(text)
+print(slovar)
