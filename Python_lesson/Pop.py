@@ -8,13 +8,13 @@
 def countWord(word, string):
     l_word = word.lower()
     l_string = string.lower()
-    word_count = len(l_string)/l_word
+    word_count = int(len(l_string)/len(l_word))
     for i in set(l_word):
         c_word = l_word.count(i)
         c_string = l_string.count(i)
         if c_string < 0:
             return 0
-        if word_count < c_string / c_word:
+        if word_count > int(c_string / c_word):
             word_count = int(c_string/c_word)
     return word_count
 
@@ -22,3 +22,5 @@ result1 = countWord("Rumpelstiltskin",  "Rumpelstiltskin")
 print(result1)
 result2 = countWord("Rumpelstiltskin",  "Rabbits under moonlight play, elves laugh, singing tales in late summer, kittens in nests.")
 print(result2)
+result3 = countWord("Rumpelstiltskin",  "RumpelstiltskinRumpelstiltskinRumpelstiltskin")
+print(result3)
