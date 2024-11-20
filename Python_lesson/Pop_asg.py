@@ -18,7 +18,7 @@ def count_word(word, text):
         symbols[ch] = ch_count_text // ch_count
 
     min_symbols_count = min(symbols, key=lambda x: symbols[x])
-    # print(symbols)
+    print(symbols)
     return symbols[min_symbols_count]
 
 
